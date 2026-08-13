@@ -1,0 +1,4 @@
+interface:
+  display_name: "上云大数据报告"
+  short_description: "基于 HandaaS 上云大数据 MCP，生成企业云资产概况（域名/CDN/IDC/云厂商/云用量）与备案域名明细的专业 HTML / Markdown / JSON 报告。"
+  default_prompt: "使用 $cloudmigration-report 生成「企业名称」的上云大数据报告：自动补全企业全称，调用上云 MCP 工具，产出 HTML + Markdown + JSON 三件套。"
