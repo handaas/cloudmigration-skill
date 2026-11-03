@@ -1,0 +1,53 @@
+{
+  "metric_overflows": [],
+  "document_title": "北京京东世纪贸易有限公司 上云大数据报告",
+  "title_matches": true,
+  "charts": 4,
+  "rendered_charts": 4,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 13
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 23
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 29
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 13
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "127eff879cd256203216884499534653a0307f7b3c88a9e90ea200237d6ec1b1",
+  "report_json_sha256": "247be6a1556e23e468f28286782893f1a3ba39a9774557d27356d76079391d22",
+  "skill": "cloudmigration-skill",
+  "id": "02-ecommerce-cloud",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:18.351Z"
+}

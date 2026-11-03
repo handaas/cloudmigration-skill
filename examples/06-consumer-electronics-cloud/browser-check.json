@@ -1,0 +1,53 @@
+{
+  "metric_overflows": [],
+  "document_title": "小米科技有限责任公司 上云大数据报告",
+  "title_matches": true,
+  "charts": 4,
+  "rendered_charts": 4,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 169
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 143
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 25
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 13
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "d79fc5eb69a0fa4dfeb26247922601fd93a5d858229f297544b54c70abe6287c",
+  "report_json_sha256": "eca9929631a7e39df19e29ef7708d91802605c2d22b772d59341962313dfdac3",
+  "skill": "cloudmigration-skill",
+  "id": "06-consumer-electronics-cloud",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:23.638Z"
+}

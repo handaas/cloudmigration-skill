@@ -1,0 +1,122 @@
+[
+  {
+    "tool": "cloudmigration_cloud_assets",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793068928982102000",
+    "elapsed_seconds": 0.758,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "cdnServerList",
+      "cloudConsumptionScale",
+      "cloudServerList",
+      "cloudServerNumInterval",
+      "cloudServiceProviderRatio",
+      "effectiveSubDomainList",
+      "effectiveSubDomainNum",
+      "hasCdn",
+      "hasOverseasCloudService",
+      "subDomainList",
+      "subDomainNum",
+      "cdnServerNum"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "cloudServiceProviderRatio[0].ratio",
+        "value": 0.40268456375838924
+      },
+      {
+        "path": "cloudServiceProviderRatio[1].ratio",
+        "value": 0.020134228187919462
+      },
+      {
+        "path": "cloudServiceProviderRatio[2].ratio",
+        "value": 0.16778523489932887
+      },
+      {
+        "path": "cloudServiceProviderRatio[3].ratio",
+        "value": 0.03355704697986577
+      },
+      {
+        "path": "cloudServiceProviderRatio[4].ratio",
+        "value": 0.09395973154362416
+      },
+      {
+        "path": "effectiveSubDomainNum",
+        "value": 127
+      },
+      {
+        "path": "hasCdn",
+        "value": 1
+      },
+      {
+        "path": "hasOverseasCloudService",
+        "value": 0
+      },
+      {
+        "path": "subDomainNum",
+        "value": 143
+      },
+      {
+        "path": "cdnServerNum",
+        "value": 6
+      }
+    ],
+    "response_sha256": "54c6e3df3e52eb5fd071e0dc60e27c8f52576df090b8fd576d6530b9ce9ff4c6"
+  },
+  {
+    "tool": "cloudmigration_domain_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793068928982102000",
+    "elapsed_seconds": 0.575,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 10,
+    "reported_total": 18,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[1].isHomePage",
+        "value": 1
+      },
+      {
+        "path": "resultList[2].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[3].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[4].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "total",
+        "value": 18
+      }
+    ],
+    "response_sha256": "2eb97c68e686dbf820564e3eb4c67c2c7d9a26a582f863cbbba3dd7777c413c0"
+  }
+]

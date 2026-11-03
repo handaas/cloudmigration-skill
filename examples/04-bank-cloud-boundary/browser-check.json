@@ -1,0 +1,53 @@
+{
+  "metric_overflows": [],
+  "document_title": "招商银行股份有限公司 上云大数据报告",
+  "title_matches": true,
+  "charts": 4,
+  "rendered_charts": 4,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 73
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 63
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 37
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 13
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "ba6b9a7ba96b38e964f4bbaada7017d27af24231ff7bd9772bc2d2f257c273f6",
+  "report_json_sha256": "01ed454494efe2dc7f487df895db27dd2c42bae581cd467f74c9d9e99a5269f9",
+  "skill": "cloudmigration-skill",
+  "id": "04-bank-cloud-boundary",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:20.984Z"
+}

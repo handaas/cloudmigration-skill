@@ -1,0 +1,82 @@
+[
+  {
+    "tool": "cloudmigration_cloud_assets",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793068926723710000",
+    "elapsed_seconds": 1.125,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "cloudConsumptionScale",
+      "cloudServerNumInterval",
+      "effectiveSubDomainList",
+      "effectiveSubDomainNum",
+      "hasOverseasCloudService",
+      "subDomainList",
+      "subDomainNum",
+      "cdnServerNum"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "effectiveSubDomainNum",
+        "value": 4
+      },
+      {
+        "path": "hasOverseasCloudService",
+        "value": 0
+      },
+      {
+        "path": "subDomainNum",
+        "value": 6
+      },
+      {
+        "path": "cdnServerNum",
+        "value": 0
+      }
+    ],
+    "response_sha256": "fbe564520857be38c0499a8461991a469005fca9f0a4598c1e0357397a072135"
+  },
+  {
+    "tool": "cloudmigration_domain_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793068926723710000",
+    "elapsed_seconds": 0.428,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 2,
+    "reported_total": 2,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[1].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "total",
+        "value": 2
+      }
+    ],
+    "response_sha256": "e9bc80a5b8e5c998a20ca3dc6405b81f8860e848f406ee74e16ec13f47f46dc4"
+  }
+]

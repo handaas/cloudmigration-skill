@@ -1,0 +1,36 @@
+{
+  "id": "06-consumer-electronics-cloud",
+  "verdict": "acceptable",
+  "summary": "当前冻结产物逐项满足场景契约；结论仅限本轮公开数据和报告口径。",
+  "checks": [
+    {
+      "expectation": "主体全称直查",
+      "status": "pass",
+      "evidence": "subject.enterprise 与 match_raw 均为“小米科技有限责任公司”，resolved=true。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=小米科技有限责任公司，resolved=True；metrics[有效域名数=1427；子域名数=3602；上云资产等级=5000W以上；备案域名数=92；备案年份覆盖=1；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/92)]"
+    },
+    {
+      "expectation": "域名、CDN 和云厂商信息分别呈现",
+      "status": "pass",
+      "evidence": "overview 分列有效域名、子域名、CDN节点、云服务厂商；domain_records 独立列出10条备案域名。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=小米科技有限责任公司，resolved=True；metrics[有效域名数=1427；子域名数=3602；上云资产等级=5000W以上；备案域名数=92；备案年份覆盖=1；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/92)]"
+    },
+    {
+      "expectation": "洞察引用报告证据",
+      "status": "pass",
+      "evidence": "每条 insight 都引用具体返回值，并明确不据此推断架构、业务、安全或监管。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=小米科技有限责任公司，resolved=True；metrics[有效域名数=1427；子域名数=3602；上云资产等级=5000W以上；备案域名数=92；备案年份覆盖=1；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/92)]"
+    },
+    {
+      "expectation": "不输出原始嵌套 JSON",
+      "status": "pass",
+      "evidence": "report.md/html 使用表格和文字字段展示，未输出原始嵌套 JSON 字符串。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=小米科技有限责任公司，resolved=True；metrics[有效域名数=1427；子域名数=3602；上云资产等级=5000W以上；备案域名数=92；备案年份覆盖=1；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/92)]"
+    }
+  ],
+  "issues": [],
+  "evidence_binding": {
+    "report.json": "eca9929631a7e39df19e29ef7708d91802605c2d22b772d59341962313dfdac3",
+    "report.html": "d79fc5eb69a0fa4dfeb26247922601fd93a5d858229f297544b54c70abe6287c",
+    "report.md": "487bfed38b85b00439eb038feb8b6a448fc13566b26198cd099cb98461d1857b",
+    "calls.json": "6e8e64c3e957013af8d4ccbca0e619dbc9ae5f1fcba8b6f559241a394e4ddd74",
+    "result.json": "4c5e458e4ff65e9d32612d41d9a76c6582f712a984c3d2d7fdfc95c7157fbe8b",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

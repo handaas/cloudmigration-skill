@@ -1,0 +1,104 @@
+[
+  {
+    "tool": "cloudmigration_cloud_assets",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793068926746365000",
+    "elapsed_seconds": 1.111,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "cloudConsumptionScale",
+      "cloudServerList",
+      "cloudServerNumInterval",
+      "cloudServiceProviderRatio",
+      "effectiveSubDomainList",
+      "effectiveSubDomainNum",
+      "hasOverseasCloudService",
+      "subDomainList",
+      "subDomainNum",
+      "cdnServerNum"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "cloudServiceProviderRatio[0].ratio",
+        "value": 0.5
+      },
+      {
+        "path": "cloudServiceProviderRatio[1].ratio",
+        "value": 0.5
+      },
+      {
+        "path": "effectiveSubDomainNum",
+        "value": 31
+      },
+      {
+        "path": "hasOverseasCloudService",
+        "value": 0
+      },
+      {
+        "path": "subDomainNum",
+        "value": 33
+      },
+      {
+        "path": "cdnServerNum",
+        "value": 0
+      }
+    ],
+    "response_sha256": "504f546273554108460dc646f2b291ff1b067d978941e044d200fff89a381448"
+  },
+  {
+    "tool": "cloudmigration_domain_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793068926746365000",
+    "elapsed_seconds": 0.427,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 10,
+    "reported_total": 27,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[1].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[2].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[3].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[4].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "total",
+        "value": 27
+      }
+    ],
+    "response_sha256": "4d8784b3654ab010bdcc1cdad576a0caf515a8426365a92b9bb657b018076be4"
+  }
+]

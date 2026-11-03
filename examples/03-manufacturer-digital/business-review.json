@@ -1,0 +1,36 @@
+{
+  "id": "03-manufacturer-digital",
+  "verdict": "acceptable",
+  "summary": "当前冻结产物逐项满足场景契约；结论仅限本轮公开数据和报告口径。",
+  "checks": [
+    {
+      "expectation": "关键数量引用实际返回",
+      "status": "pass",
+      "evidence": "metrics 引用上游有效域名119、子域名178、备案域名4、资产等级5000W以上。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=美的集团股份有限公司，resolved=True；metrics[有效域名数=119；子域名数=178；上云资产等级=5000W以上；备案域名数=4；备案年份覆盖=2；最新备案年份=2026；官网数=2]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=4；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(4/4)]"
+    },
+    {
+      "expectation": "域名样本与总量区分",
+      "status": "pass",
+      "evidence": "备案总量4、当前页4与具体4条 domain_records 分开呈现。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=美的集团股份有限公司，resolved=True；metrics[有效域名数=119；子域名数=178；上云资产等级=5000W以上；备案域名数=4；备案年份覆盖=2；最新备案年份=2026；官网数=2]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=4；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(4/4)]"
+    },
+    {
+      "expectation": "不能把域名数量直接等同数字化成熟度",
+      "status": "pass",
+      "evidence": "summary 明示“不作技术实践、安全或监管判断”；insights 对数量逐项声明不能推断架构/规模/风险/监管。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=美的集团股份有限公司，resolved=True；metrics[有效域名数=119；子域名数=178；上云资产等级=5000W以上；备案域名数=4；备案年份覆盖=2；最新备案年份=2026；官网数=2]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=4；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(4/4)]"
+    },
+    {
+      "expectation": "空云厂商字段不生成推断",
+      "status": "pass",
+      "evidence": "本例 vendor_dist 有12条真实返回；报告只列厂商及占比，若为空不会生成替代推断。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=美的集团股份有限公司，resolved=True；metrics[有效域名数=119；子域名数=178；上云资产等级=5000W以上；备案域名数=4；备案年份覆盖=2；最新备案年份=2026；官网数=2]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=4；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(4/4)]"
+    }
+  ],
+  "issues": [],
+  "evidence_binding": {
+    "report.json": "8c553f0033530662eb88b3520bb0bab2a6d9e92d99a83016f3af993c3ac411ff",
+    "report.html": "ac9720d93d36d5764c2b7031e628c5a8d38747140bc9e2e86fff0413abbf7dde",
+    "report.md": "392f0682d697f06ff902086b250f993eca700280cfe4f7289c013332f1efd6c3",
+    "calls.json": "52f152a33bd825efc58181ae5556c4ba54b197a4c804afa98cc19c97c2667d9e",
+    "result.json": "217b583d522615526bb8f87b27bac46b587fca492faf4291db0047d012db63bb",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

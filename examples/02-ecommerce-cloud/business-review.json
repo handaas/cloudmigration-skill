@@ -1,0 +1,36 @@
+{
+  "id": "02-ecommerce-cloud",
+  "verdict": "acceptable",
+  "summary": "当前冻结产物逐项满足场景契约；结论仅限本轮公开数据和报告口径。",
+  "checks": [
+    {
+      "expectation": "主体名称准确",
+      "status": "pass",
+      "evidence": "subject/title/caliber.match_target 均为“北京京东世纪贸易有限公司”。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=北京京东世纪贸易有限公司，resolved=True；metrics[有效域名数=31；子域名数=33；上云资产等级=500-1000W；备案域名数=27；备案年份覆盖=2；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/27)]"
+    },
+    {
+      "expectation": "备案域名与云资产指标分开展示",
+      "status": "pass",
+      "evidence": "cloud_assets_overview 的有效域名31/子域名33与 domain_records 的备案总量27、当前页10分别展示，且声明不可直接相除。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=北京京东世纪贸易有限公司，resolved=True；metrics[有效域名数=31；子域名数=33；上云资产等级=500-1000W；备案域名数=27；备案年份覆盖=2；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/27)]"
+    },
+    {
+      "expectation": "报告能识别云厂商/CDN/IDC 等实际返回维度",
+      "status": "pass",
+      "evidence": "概况明确厂商“电信、联通”和云支出各50%；CDN、云用量、海外服务器也按上游字段展示。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=北京京东世纪贸易有限公司，resolved=True；metrics[有效域名数=31；子域名数=33；上云资产等级=500-1000W；备案域名数=27；备案年份覆盖=2；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/27)]"
+    },
+    {
+      "expectation": "报告口径说明分页限制",
+      "status": "pass",
+      "evidence": "caliber.limit 明示备案上游总量27、当前页10、第1页、每页最多10条。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=北京京东世纪贸易有限公司，resolved=True；metrics[有效域名数=31；子域名数=33；上云资产等级=500-1000W；备案域名数=27；备案年份覆盖=2；最新备案年份=2025]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=10；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(10/27)]"
+    }
+  ],
+  "issues": [],
+  "evidence_binding": {
+    "report.json": "247be6a1556e23e468f28286782893f1a3ba39a9774557d27356d76079391d22",
+    "report.html": "127eff879cd256203216884499534653a0307f7b3c88a9e90ea200237d6ec1b1",
+    "report.md": "022c39169fdb434937879643a3c46490982d7d22210702c3728a573abdc5bf34",
+    "calls.json": "3acab944030de98805d5240f053ab9ebe260b283a686e03ef0d45909aca8775c",
+    "result.json": "aa2b705e7317a1c4d9fac4062968fbec89cdbc343ae842465890e6ce90dd74aa",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

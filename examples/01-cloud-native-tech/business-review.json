@@ -1,0 +1,36 @@
+{
+  "id": "01-cloud-native-tech",
+  "verdict": "acceptable",
+  "summary": "当前冻结产物逐项满足场景契约；结论仅限本轮公开数据和报告口径。",
+  "checks": [
+    {
+      "expectation": "云资产概况与备案域名明细同时检查",
+      "status": "pass",
+      "evidence": "core_analysis 同时含 cloud_assets_overview 与2条 domain_records；quality_report 为4/6。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=腾讯科技（深圳）有限公司，resolved=True；metrics[有效域名数=4；子域名数=6；上云资产等级=1000-5000W；备案域名数=2；备案年份覆盖=2；最新备案年份=2017]；quality={'total_sections': 6, 'populated_sections': 4, 'empty_sections': 2, 'coverage_pct': 67}；非空章节=['云资产概况', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=2；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(2/2)]"
+    },
+    {
+      "expectation": "域名记录可读且不重复夸大",
+      "status": "pass",
+      "evidence": "domain_records 为 wecity-qcloud.com、hudongcdn.com 两条唯一域名；summary 明确上游备案总量2、当前页2。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=腾讯科技（深圳）有限公司，resolved=True；metrics[有效域名数=4；子域名数=6；上云资产等级=1000-5000W；备案域名数=2；备案年份覆盖=2；最新备案年份=2017]；quality={'total_sections': 6, 'populated_sections': 4, 'empty_sections': 2, 'coverage_pct': 67}；非空章节=['云资产概况', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=2；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(2/2)]"
+    },
+    {
+      "expectation": "云厂商和 IDC 字段仅按返回事实描述",
+      "status": "pass",
+      "evidence": "云资产概况只展示上游有效域名4、子域名6、资产等级及海外服务器字段；未推断架构、安全或监管结论。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=腾讯科技（深圳）有限公司，resolved=True；metrics[有效域名数=4；子域名数=6；上云资产等级=1000-5000W；备案域名数=2；备案年份覆盖=2；最新备案年份=2017]；quality={'total_sections': 6, 'populated_sections': 4, 'empty_sections': 2, 'coverage_pct': 67}；非空章节=['云资产概况', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=2；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(2/2)]"
+    },
+    {
+      "expectation": "缺失字段不置为零",
+      "status": "pass",
+      "evidence": "缺失 vendor/spend 列表保持为空；没有把未知厂商或IDC字段写成0。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=腾讯科技（深圳）有限公司，resolved=True；metrics[有效域名数=4；子域名数=6；上云资产等级=1000-5000W；备案域名数=2；备案年份覆盖=2；最新备案年份=2017]；quality={'total_sections': 6, 'populated_sections': 4, 'empty_sections': 2, 'coverage_pct': 67}；非空章节=['云资产概况', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=2；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(2/2)]"
+    }
+  ],
+  "issues": [],
+  "evidence_binding": {
+    "report.json": "993dd9d0c0fec1354526d2c1ab954af48519cab91be70e349260905bb1b6b2de",
+    "report.html": "b5e317f0ef250943bf939a694a39bff957b6ddf7e16ae7fce38618a320fce263",
+    "report.md": "43fe00137b350e667ed141bfde65bb8183c4bbc7a5634b8fd20069f1413519ce",
+    "calls.json": "48660acd4393699254425aa3b0188e6a230fc851db59fe16cbfd58d13c0dea1c",
+    "result.json": "f5e1c6f7210f9b65774c1b74c818c48adedcec9c075f1fca9f33473178fc86c0",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

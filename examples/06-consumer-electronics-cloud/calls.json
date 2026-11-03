@@ -1,0 +1,127 @@
+[
+  {
+    "tool": "cloudmigration_cloud_assets",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "小米科技有限责任公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793068930146299000",
+    "elapsed_seconds": 0.602,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "cdnServerList",
+      "cloudConsumptionScale",
+      "cloudServerList",
+      "cloudServerNumInterval",
+      "cloudServiceProviderRatio",
+      "effectiveSubDomainList",
+      "effectiveSubDomainNum",
+      "hasCdn",
+      "hasCloudStorage",
+      "hasOverseasCloudService",
+      "subDomainList",
+      "subDomainNum",
+      "cdnServerNum"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "cloudServiceProviderRatio[0].ratio",
+        "value": 0.15666041275797374
+      },
+      {
+        "path": "cloudServiceProviderRatio[1].ratio",
+        "value": 0.3672607879924953
+      },
+      {
+        "path": "cloudServiceProviderRatio[2].ratio",
+        "value": 0.24155722326454035
+      },
+      {
+        "path": "cloudServiceProviderRatio[3].ratio",
+        "value": 0.001876172607879925
+      },
+      {
+        "path": "cloudServiceProviderRatio[4].ratio",
+        "value": 0.0009380863039399625
+      },
+      {
+        "path": "effectiveSubDomainNum",
+        "value": 1427
+      },
+      {
+        "path": "hasCdn",
+        "value": 1
+      },
+      {
+        "path": "hasCloudStorage",
+        "value": 1
+      },
+      {
+        "path": "hasOverseasCloudService",
+        "value": 0
+      },
+      {
+        "path": "subDomainNum",
+        "value": 3602
+      },
+      {
+        "path": "cdnServerNum",
+        "value": 16
+      }
+    ],
+    "response_sha256": "25faf30a2f5d07d8b49db94fb875f6a988e081c8199400f4668cf6db840f4f41"
+  },
+  {
+    "tool": "cloudmigration_domain_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "小米科技有限责任公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793068930146299000",
+    "elapsed_seconds": 0.716,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 10,
+    "reported_total": 92,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[1].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[2].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[3].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[4].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "total",
+        "value": 92
+      }
+    ],
+    "response_sha256": "944f0300cc6056047d058a32bc9ba895509f9ea2f3b9b0e65dfcfdd9a014f83a"
+  }
+]

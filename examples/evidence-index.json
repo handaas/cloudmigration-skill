@@ -1,0 +1,113 @@
+{
+  "run_id": "live-replaced-20261027",
+  "cases": [
+    {
+      "skill": "cloudmigration-skill",
+      "id": "01-cloud-native-tech",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "993dd9d0c0fec1354526d2c1ab954af48519cab91be70e349260905bb1b6b2de",
+        "report.html": "b5e317f0ef250943bf939a694a39bff957b6ddf7e16ae7fce38618a320fce263",
+        "report.md": "43fe00137b350e667ed141bfde65bb8183c4bbc7a5634b8fd20069f1413519ce",
+        "calls.json": "48660acd4393699254425aa3b0188e6a230fc851db59fe16cbfd58d13c0dea1c",
+        "result.json": "f5e1c6f7210f9b65774c1b74c818c48adedcec9c075f1fca9f33473178fc86c0",
+        "audit.json": "0553fe46e08f0ccb5855e7d72d7c396aa88828b76bcf84efd24364d72d52e630",
+        "acceptance.json": "edb66335624afd51a8a19ae2a93d7eec89fa2dbacab766cbf303c4f4b94834d6",
+        "business-review.json": "fddf2f96a47733a2c9f0f7a21dff1bad807fe6ba72a3970d4b5c57a1f7ed1e52",
+        "browser-check.json": "156cb9add479da9564b22d7a17b59d6617bc805f5ee7d86559073ed00618181c"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/01-cloud-native-tech.md"
+    },
+    {
+      "skill": "cloudmigration-skill",
+      "id": "02-ecommerce-cloud",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "247be6a1556e23e468f28286782893f1a3ba39a9774557d27356d76079391d22",
+        "report.html": "127eff879cd256203216884499534653a0307f7b3c88a9e90ea200237d6ec1b1",
+        "report.md": "022c39169fdb434937879643a3c46490982d7d22210702c3728a573abdc5bf34",
+        "calls.json": "3acab944030de98805d5240f053ab9ebe260b283a686e03ef0d45909aca8775c",
+        "result.json": "aa2b705e7317a1c4d9fac4062968fbec89cdbc343ae842465890e6ce90dd74aa",
+        "audit.json": "8ffe6cac5c951559a585abfdca4157267e5d029526a9bb060459f1c6ff0cb9ac",
+        "acceptance.json": "7fda0bd834772b2c6b48b833f274d6566d5f5829baea89e5dac1003ea472340e",
+        "business-review.json": "cc00a06f378169a8155ad3ca23760bea927fe42737f41a069cf93d30a478d206",
+        "browser-check.json": "db503016967d3f3edb8943753a78dabe726a61df11c07d38b987e5171081f47e"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/02-ecommerce-cloud.md"
+    },
+    {
+      "skill": "cloudmigration-skill",
+      "id": "03-manufacturer-digital",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "8c553f0033530662eb88b3520bb0bab2a6d9e92d99a83016f3af993c3ac411ff",
+        "report.html": "ac9720d93d36d5764c2b7031e628c5a8d38747140bc9e2e86fff0413abbf7dde",
+        "report.md": "392f0682d697f06ff902086b250f993eca700280cfe4f7289c013332f1efd6c3",
+        "calls.json": "52f152a33bd825efc58181ae5556c4ba54b197a4c804afa98cc19c97c2667d9e",
+        "result.json": "217b583d522615526bb8f87b27bac46b587fca492faf4291db0047d012db63bb",
+        "audit.json": "acc4583827de4934027115633a0db0a30e1e0bd6ba3cc40fb0fcb2dbfa41196a",
+        "acceptance.json": "55e61192a4547acb5d742ff755714a744aed10166a8f2ee632e4748ae01d17bb",
+        "business-review.json": "255f2b9397a74185d9b1a4ab9ff515135654b4180bcb1e26804d6eea288d52c6",
+        "browser-check.json": "8957a6501b0455fdd21de48e36e4da485c90ddcebe59806f9a557fc0df530f88"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/03-manufacturer-digital.md"
+    },
+    {
+      "skill": "cloudmigration-skill",
+      "id": "04-bank-cloud-boundary",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "01ed454494efe2dc7f487df895db27dd2c42bae581cd467f74c9d9e99a5269f9",
+        "report.html": "ba6b9a7ba96b38e964f4bbaada7017d27af24231ff7bd9772bc2d2f257c273f6",
+        "report.md": "d03321b2b2a70114f097fe5c048c62cd3ba54bb7e8e5e9dd345cc20f4e4146f9",
+        "calls.json": "5016b737fde666e8deedaf85c5d2959316e539e407fdbf06415b2695c49f0460",
+        "result.json": "5352cdf37d84f8d362d9815454174ff2a12ad27df9c8fd7fa9fca56c3212eace",
+        "audit.json": "a79034c96749dcd590108ebc685759d137e314bdbfeaef14cf2ed5c99d48b332",
+        "acceptance.json": "b0917bf53ec4304d00db1945bab7f5222319e4650010ab035e72e491f2dbfd82",
+        "business-review.json": "dbe262dadbc6ffa883a46ffebdcfa550ee4d976c206bffa8009ad9182297be9f",
+        "browser-check.json": "75bb3114f9adde32941863559ad96c47527cb42d15069d246436742cbb3d2a2c"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/04-bank-cloud-boundary.md"
+    },
+    {
+      "skill": "cloudmigration-skill",
+      "id": "05-automaker-cloud",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "830f4bd4fc1629e2d3be6d98a68a13ea6afb9823a90e420a1781fd2a29636059",
+        "report.html": "ccda1ecccbcd9c60e3715c1fcf6cefb6edeabab31ed82fcc56452b50eab72ba6",
+        "report.md": "42e84b81f884036ade64feab774e0a14f816b47cafee1b99241e85ef21ec58bc",
+        "calls.json": "750d76ba62986c24208f995bcb79ada701cacaad252ed56e868e348aa845ae5f",
+        "result.json": "646b5fe4bce94c9d711d556fc06050dee0e75f3b0c340e774fa4bfb456239beb",
+        "audit.json": "7d768af8d7b3e6c27720cb38f90915c72e7de82b0d234f2b3ea7b51158cec6c7",
+        "acceptance.json": "9b8ce324df82b5f8ab843f7622787cb991a828fa2ee7bb549a552446405ac8ba",
+        "business-review.json": "87b6907bb29a674ef30c9e0c123b70082a5160d8904a4dac76f5c22b4c00913d",
+        "browser-check.json": "51b8d869bb67e25009dc6fa63a14204446a40eef03818bab32c6f8ada89d0d61"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/05-automaker-cloud.md"
+    },
+    {
+      "skill": "cloudmigration-skill",
+      "id": "06-consumer-electronics-cloud",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "eca9929631a7e39df19e29ef7708d91802605c2d22b772d59341962313dfdac3",
+        "report.html": "d79fc5eb69a0fa4dfeb26247922601fd93a5d858229f297544b54c70abe6287c",
+        "report.md": "487bfed38b85b00439eb038feb8b6a448fc13566b26198cd099cb98461d1857b",
+        "calls.json": "6e8e64c3e957013af8d4ccbca0e619dbc9ae5f1fcba8b6f559241a394e4ddd74",
+        "result.json": "4c5e458e4ff65e9d32612d41d9a76c6582f712a984c3d2d7fdfc95c7157fbe8b",
+        "audit.json": "089a388b0f8f1172c33d9d80182eee4545b01911a6806cc8f4567924f87acf65",
+        "acceptance.json": "0ae74b2febd7133f6a43c1ff48f4becfa2c3519b684b14d335382e2619847574",
+        "business-review.json": "983b5b12da5b354c6051c9f49872eb8aebbc9bf90cf249e0d110834092363a72",
+        "browser-check.json": "40c6533f0270e4de1b25364e4490e2e6e1bdcaec3f2aee7a21c1a60f74379091"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/06-consumer-electronics-cloud.md"
+    }
+  ]
+}

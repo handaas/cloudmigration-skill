@@ -1,0 +1,140 @@
+{
+  "skill": "cloudmigration-skill",
+  "kind": "verified_positive_examples",
+  "run_id": "live-replaced-20261027",
+  "source_manifest": "../test-records/scenarios-20261027.json",
+  "scenarios": [
+    {
+      "id": "01-cloud-native-tech",
+      "title": "大型科技企业云资产画像",
+      "user_request": "请分析腾讯科技（深圳）有限公司的域名、CDN、IDC、云厂商和云用量线索。",
+      "purpose": "云服务竞争与基础设施画像",
+      "args": [
+        "--enterprise",
+        "腾讯科技（深圳）有限公司",
+        "--page-size",
+        "10"
+      ],
+      "expected_checks": [
+        "云资产概况与备案域名明细同时检查",
+        "域名记录可读且不重复夸大",
+        "云厂商和 IDC 字段仅按返回事实描述",
+        "缺失字段不置为零"
+      ],
+      "limitations": [
+        "公开备案域名不等于全部线上资产",
+        "无法仅据报告确认实时云消费金额"
+      ]
+    },
+    {
+      "id": "02-ecommerce-cloud",
+      "title": "电商平台云基础设施",
+      "user_request": "请查看北京京东世纪贸易有限公司的上云资产和备案域名。",
+      "purpose": "云迁移销售线索评估",
+      "args": [
+        "--enterprise",
+        "北京京东世纪贸易有限公司",
+        "--page-size",
+        "10"
+      ],
+      "expected_checks": [
+        "主体名称准确",
+        "备案域名与云资产指标分开展示",
+        "报告能识别云厂商/CDN/IDC 等实际返回维度",
+        "报告口径说明分页限制"
+      ],
+      "limitations": [
+        "集团关联主体域名可能不归入本主体",
+        "备案与实际部署位置可能不同"
+      ]
+    },
+    {
+      "id": "03-manufacturer-digital",
+      "title": "制造企业数字基础设施",
+      "user_request": "请评估美的集团股份有限公司的云资产覆盖和备案域名数量。",
+      "purpose": "制造业数字化成熟度线索",
+      "args": [
+        "--enterprise",
+        "美的集团股份有限公司",
+        "--page-size",
+        "8"
+      ],
+      "expected_checks": [
+        "关键数量引用实际返回",
+        "域名样本与总量区分",
+        "不能把域名数量直接等同数字化成熟度",
+        "空云厂商字段不生成推断"
+      ],
+      "limitations": [
+        "云资产只是数字化成熟度的间接信号",
+        "海外或未备案域名可能不在范围内"
+      ]
+    },
+    {
+      "id": "04-bank-cloud-boundary",
+      "title": "金融机构云资产边界",
+      "user_request": "请查询招商银行股份有限公司的公开云资产，并注明不能据此判断的内容。",
+      "purpose": "金融行业云合作前置调研",
+      "args": [
+        "--enterprise",
+        "招商银行股份有限公司",
+        "--page-size",
+        "8"
+      ],
+      "expected_checks": [
+        "只展示公开可得资产事实",
+        "安全或合规结论不由域名数量推断",
+        "报告明确数据覆盖边界",
+        "敏感配置和凭证绝不出现"
+      ],
+      "limitations": [
+        "不得据报告推断内部网络拓扑或安全水平",
+        "金融机构可能使用专有云且公开线索有限"
+      ]
+    },
+    {
+      "id": "05-automaker-cloud",
+      "title": "车企云资产画像",
+      "user_request": "请分析比亚迪股份有限公司的备案域名和云服务商线索。",
+      "purpose": "车联网及企业云商机研究",
+      "args": [
+        "--enterprise",
+        "比亚迪股份有限公司",
+        "--page-size",
+        "10"
+      ],
+      "expected_checks": [
+        "备案域名明细字段完整",
+        "云厂商分布依据数据而非品牌常识",
+        "报告中的总数和样本条数可区分",
+        "空章节跳过"
+      ],
+      "limitations": [
+        "关联品牌和海外域名可能分属其他主体",
+        "无法据公开资产确认车联网技术架构"
+      ]
+    },
+    {
+      "id": "06-consumer-electronics-cloud",
+      "title": "消费电子企业云线索",
+      "user_request": "请查看小米科技有限责任公司的上云情况和主要域名。",
+      "purpose": "云生态合作机会识别",
+      "args": [
+        "--enterprise",
+        "小米科技有限责任公司",
+        "--page-size",
+        "10"
+      ],
+      "expected_checks": [
+        "主体全称直查",
+        "域名、CDN 和云厂商信息分别呈现",
+        "洞察引用报告证据",
+        "不输出原始嵌套 JSON"
+      ],
+      "limitations": [
+        "集团内其他经营主体可能不在查询范围",
+        "域名所有权与业务运营主体可能不一致"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "04-bank-cloud-boundary",
+  "verdict": "acceptable",
+  "summary": "当前冻结产物逐项满足场景契约；结论仅限本轮公开数据和报告口径。",
+  "checks": [
+    {
+      "expectation": "只展示公开可得资产事实",
+      "status": "pass",
+      "evidence": "报告仅列有效域名163、子域名718、资产等级、厂商/支出与8条备案域名字段。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=招商银行股份有限公司，resolved=True；metrics[有效域名数=163；子域名数=718；上云资产等级=5000W以上；备案域名数=10；备案年份覆盖=4；最新备案年份=2026]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=8；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(8/10)]"
+    },
+    {
+      "expectation": "安全或合规结论不由域名数量推断",
+      "status": "pass",
+      "evidence": "summary 明示不作安全或监管判断；各 insight 也明确数量不能单独推断安全风险或监管状态。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=招商银行股份有限公司，resolved=True；metrics[有效域名数=163；子域名数=718；上云资产等级=5000W以上；备案域名数=10；备案年份覆盖=4；最新备案年份=2026]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=8；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(8/10)]"
+    },
+    {
+      "expectation": "报告明确数据覆盖边界",
+      "status": "pass",
+      "evidence": "caliber.limit 明示公开探测覆盖、不同产品不可直接相除、备案总量10/当前页8及更新延迟。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=招商银行股份有限公司，resolved=True；metrics[有效域名数=163；子域名数=718；上云资产等级=5000W以上；备案域名数=10；备案年份覆盖=4；最新备案年份=2026]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=8；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(8/10)]"
+    },
+    {
+      "expectation": "敏感配置和凭证绝不出现",
+      "status": "pass",
+      "evidence": "报告中未出现 secret、signature、token、password、authorization、密钥或签名内容。；本轮当前产物：technical=passed，successful_data_calls=2；subject.enterprise=招商银行股份有限公司，resolved=True；metrics[有效域名数=163；子域名数=718；上云资产等级=5000W以上；备案域名数=10；备案年份覆盖=4；最新备案年份=2026]；quality={'total_sections': 6, 'populated_sections': 6, 'empty_sections': 0, 'coverage_pct': 100}；非空章节=['云资产概况', '云支出占比', '云服务厂商记录', '备案年度趋势', '海外服务器字段', '备案域名明细']；代表记录=8；calls[-:cloudmigration_cloud_assets=data；-:cloudmigration_domain_info=data(8/10)]"
+    }
+  ],
+  "issues": [],
+  "evidence_binding": {
+    "report.json": "01ed454494efe2dc7f487df895db27dd2c42bae581cd467f74c9d9e99a5269f9",
+    "report.html": "ba6b9a7ba96b38e964f4bbaada7017d27af24231ff7bd9772bc2d2f257c273f6",
+    "report.md": "d03321b2b2a70114f097fe5c048c62cd3ba54bb7e8e5e9dd345cc20f4e4146f9",
+    "calls.json": "5016b737fde666e8deedaf85c5d2959316e539e407fdbf06415b2695c49f0460",
+    "result.json": "5352cdf37d84f8d362d9815454174ff2a12ad27df9c8fd7fa9fca56c3212eace",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

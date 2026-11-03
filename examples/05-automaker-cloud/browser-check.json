@@ -1,0 +1,53 @@
+{
+  "metric_overflows": [],
+  "document_title": "比亚迪股份有限公司 上云大数据报告",
+  "title_matches": true,
+  "charts": 4,
+  "rendered_charts": 4,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 91
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 75
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 37
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 13
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "ccda1ecccbcd9c60e3715c1fcf6cefb6edeabab31ed82fcc56452b50eab72ba6",
+  "report_json_sha256": "830f4bd4fc1629e2d3be6d98a68a13ea6afb9823a90e420a1781fd2a29636059",
+  "skill": "cloudmigration-skill",
+  "id": "05-automaker-cloud",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:22.385Z"
+}

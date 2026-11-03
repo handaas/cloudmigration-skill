@@ -1,0 +1,118 @@
+[
+  {
+    "tool": "cloudmigration_cloud_assets",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "美的集团股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793068928518090000",
+    "elapsed_seconds": 1.203,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "cdnServerList",
+      "cloudConsumptionScale",
+      "cloudServerList",
+      "cloudServerNumInterval",
+      "cloudServiceProviderRatio",
+      "effectiveSubDomainList",
+      "effectiveSubDomainNum",
+      "hasCdn",
+      "hasOverseasCloudService",
+      "subDomainList",
+      "subDomainNum",
+      "cdnServerNum"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "cloudServiceProviderRatio[0].ratio",
+        "value": 0.3079470198675497
+      },
+      {
+        "path": "cloudServiceProviderRatio[1].ratio",
+        "value": 0.0033112582781456954
+      },
+      {
+        "path": "cloudServiceProviderRatio[2].ratio",
+        "value": 0.013245033112582781
+      },
+      {
+        "path": "cloudServiceProviderRatio[3].ratio",
+        "value": 0.22847682119205298
+      },
+      {
+        "path": "cloudServiceProviderRatio[4].ratio",
+        "value": 0.1423841059602649
+      },
+      {
+        "path": "effectiveSubDomainNum",
+        "value": 119
+      },
+      {
+        "path": "hasCdn",
+        "value": 1
+      },
+      {
+        "path": "hasOverseasCloudService",
+        "value": 0
+      },
+      {
+        "path": "subDomainNum",
+        "value": 178
+      },
+      {
+        "path": "cdnServerNum",
+        "value": 5
+      }
+    ],
+    "response_sha256": "fc1310e5b1fffa8ee127231e9b9c500e2c701becf5bfe46318444f12ae73e2ac"
+  },
+  {
+    "tool": "cloudmigration_domain_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "美的集团股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 8
+    },
+    "invocation_id": "1793068928518090000",
+    "elapsed_seconds": 0.579,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 4,
+    "reported_total": 4,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[1].isHomePage",
+        "value": 1
+      },
+      {
+        "path": "resultList[2].isHomePage",
+        "value": 1
+      },
+      {
+        "path": "resultList[3].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "total",
+        "value": 4
+      }
+    ],
+    "response_sha256": "89ce08804b8451299873c8b8994122d13cc1755bd36661ce667a14f171f026e6"
+  }
+]

@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "skill": "cloudmigration-skill",
+  "case_id": "03-manufacturer-digital",
+  "title": "制造企业数字基础设施",
+  "invocation_id": "1793068928518090000",
+  "provenance": {
+    "integrator_id": "683e574805537ace146cc05e",
+    "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+    "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+    "scenario_sha256": "97fae4bc81a1a54c5a2e2218eec85aeceb39dcc72331b8c5de76fadcc0e2a3ea",
+    "skill_source_hashes": {
+      "scripts/common.py": "85d404a13d716bfa76b0359f8876c41a9fd842b4c75f7a697391cb09caea22d0",
+      "scripts/compose_report.py": "4f0efdd3ab7055051c71547d3fd04642a1251f0370e19304617c6d4c93a2d268",
+      "scripts/mcp_client.py": "7f48eb681a7d2f5b7906387a5f88828e42da192f7f2258f39e08eea6340ee249",
+      "scripts/render_report.py": "3cae67a52668009d27ddca659e4219fcec9bba5eaf62b0b37957a2483f97387c",
+      "scripts/validate_config.py": "12ff73db4d386b6e6df2a42dd17bdd92d3aeadaa0ed96857578b6d9e5f9dea17"
+    },
+    "upstream_source_hashes": {
+      "cloudmigration-mcp-server": "59cd5a8336dda21bbac7a1e65160d708f34bc43ecba499e1240b107243071385"
+    },
+    "upstream_dependency_hashes": {
+      "cloudmigration-mcp-server/server/mcp_server.py": "59cd5a8336dda21bbac7a1e65160d708f34bc43ecba499e1240b107243071385"
+    }
+  },
+  "source_changed_during_run": false,
+  "started_at": "2026-10-27T10:42:08+08:00",
+  "elapsed_seconds": 1.873,
+  "returncode": 0,
+  "exception_type": null,
+  "command": "python3 cloudmigration-skill/scripts/compose_report.py --enterprise '美的集团股份有限公司' --page-size 8 --output cloudmigration-skill/output/live-replaced-20261027/03-manufacturer-digital/report.json --report-output cloudmigration-skill/output/live-replaced-20261027/03-manufacturer-digital/report.html",
+  "transport": "local MCP servers via loopback streamable-http",
+  "cache_used": false,
+  "call_count": 2,
+  "successful_data_calls": 2,
+  "empty_calls": 0,
+  "failed_calls": 0,
+  "checks": {
+    "issues": [],
+    "warnings": [],
+    "coverage_pct": 100,
+    "subject": {
+      "enterprise": "美的集团股份有限公司",
+      "matchKeyword": "美的集团股份有限公司",
+      "keywordType": "name",
+      "match_raw": "美的集团股份有限公司",
+      "resolved": true,
+      "resolve_reason": "视为企业全称",
+      "fuzzy_total": null,
+      "requires_confirmation": false,
+      "domain_total": 4,
+      "domain_returned": 4,
+      "domain_page_index": 1,
+      "domain_page_size": 8
+    },
+    "title": "美的集团股份有限公司 上云大数据报告",
+    "data_mode": null,
+    "metrics": [
+      {
+        "label": "有效域名数",
+        "value": "119",
+        "hint": "企业云上有效域名数量"
+      },
+      {
+        "label": "子域名数",
+        "value": "178",
+        "hint": "子域名数量",
+        "delta": "子域/有效 1.5"
+      },
+      {
+        "label": "上云资产等级",
+        "value": "5000W以上",
+        "hint": "云资产规模等级"
+      },
+      {
+        "label": "备案域名数",
+        "value": "4",
+        "hint": "备案域名条数"
+      },
+      {
+        "label": "备案年份覆盖",
+        "value": "2",
+        "hint": "有域名备案记录的年度数"
+      },
+      {
+        "label": "最新备案年份",
+        "value": "2026",
+        "hint": "最近一次域名备案年份"
+      },
+      {
+        "label": "官网数",
+        "value": "2",
+        "hint": "已标记为官网的域名数"
+      }
+    ],
+    "quality_report": {
+      "total_sections": 6,
+      "populated_sections": 6,
+      "empty_sections": 0,
+      "coverage_pct": 100
+    },
+    "unregistered_tools": [],
+    "checks": {
+      "json_html_markdown": true,
+      "explicit_live": true,
+      "tool_calls_recorded": 2,
+      "offline_scripts": true,
+      "independent_rerender": true,
+      "offline_browser": true
+    }
+  },
+  "status": "passed",
+  "source_hashes": {
+    "scripts/common.py": "85d404a13d716bfa76b0359f8876c41a9fd842b4c75f7a697391cb09caea22d0",
+    "scripts/compose_report.py": "4f0efdd3ab7055051c71547d3fd04642a1251f0370e19304617c6d4c93a2d268",
+    "scripts/mcp_client.py": "7f48eb681a7d2f5b7906387a5f88828e42da192f7f2258f39e08eea6340ee249",
+    "scripts/render_report.py": "3cae67a52668009d27ddca659e4219fcec9bba5eaf62b0b37957a2483f97387c",
+    "scripts/validate_config.py": "12ff73db4d386b6e6df2a42dd17bdd92d3aeadaa0ed96857578b6d9e5f9dea17"
+  },
+  "technical_status": "passed",
+  "audited_at": "2026-10-27T11:12:56+08:00",
+  "evidence_binding": {
+    "report.json": "8c553f0033530662eb88b3520bb0bab2a6d9e92d99a83016f3af993c3ac411ff",
+    "report.html": "ac9720d93d36d5764c2b7031e628c5a8d38747140bc9e2e86fff0413abbf7dde",
+    "report.md": "392f0682d697f06ff902086b250f993eca700280cfe4f7289c013332f1efd6c3",
+    "calls.json": "52f152a33bd825efc58181ae5556c4ba54b197a4c804afa98cc19c97c2667d9e",
+    "result.json": "217b583d522615526bb8f87b27bac46b587fca492faf4291db0047d012db63bb",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

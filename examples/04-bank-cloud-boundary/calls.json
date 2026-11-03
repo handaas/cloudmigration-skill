@@ -1,0 +1,122 @@
+[
+  {
+    "tool": "cloudmigration_cloud_assets",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "招商银行股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793068928521790000",
+    "elapsed_seconds": 1.037,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "cdnServerList",
+      "cloudConsumptionScale",
+      "cloudServerList",
+      "cloudServerNumInterval",
+      "cloudServiceProviderRatio",
+      "effectiveSubDomainList",
+      "effectiveSubDomainNum",
+      "hasCdn",
+      "hasOverseasCloudService",
+      "subDomainList",
+      "subDomainNum",
+      "cdnServerNum"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "cloudServiceProviderRatio[0].ratio",
+        "value": 0.5274261603375527
+      },
+      {
+        "path": "cloudServiceProviderRatio[1].ratio",
+        "value": 0.004219409282700422
+      },
+      {
+        "path": "cloudServiceProviderRatio[2].ratio",
+        "value": 0.004219409282700422
+      },
+      {
+        "path": "cloudServiceProviderRatio[3].ratio",
+        "value": 0.379746835443038
+      },
+      {
+        "path": "cloudServiceProviderRatio[4].ratio",
+        "value": 0.004219409282700422
+      },
+      {
+        "path": "effectiveSubDomainNum",
+        "value": 163
+      },
+      {
+        "path": "hasCdn",
+        "value": 1
+      },
+      {
+        "path": "hasOverseasCloudService",
+        "value": 0
+      },
+      {
+        "path": "subDomainNum",
+        "value": 718
+      },
+      {
+        "path": "cdnServerNum",
+        "value": 5
+      }
+    ],
+    "response_sha256": "bfdb82589b280bc7ecfec8757a73d8705b4685e900ff1a0fd43ddccd02053ca8"
+  },
+  {
+    "tool": "cloudmigration_domain_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "招商银行股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 8
+    },
+    "invocation_id": "1793068928521790000",
+    "elapsed_seconds": 0.358,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 8,
+    "reported_total": 10,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[1].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[2].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[3].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "resultList[4].isHomePage",
+        "value": 0
+      },
+      {
+        "path": "total",
+        "value": 10
+      }
+    ],
+    "response_sha256": "bac6598a75439dd90c26a56deda8e4fb7d91fbfe072fed97df3669c98d07bdd2"
+  }
+]
