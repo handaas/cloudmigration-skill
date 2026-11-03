@@ -19,6 +19,7 @@ import argparse
 import datetime as dt
 import json
 import pathlib
+from decimal import Decimal, InvalidOperation
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
 from common import REPORT_BANNER, REPORT_TYPE, attach_pagination, call_tool_once, collect_detail_pages, die, json_dumps, load_json_file, paid_call_scope, print_json
@@ -313,6 +314,52 @@ def build_metrics(assets: Any, domain: Any) -> List[Dict[str, Any]]:
     return [m for m in metrics if m.get("value") not in ("", None, "-")]
 
 
+def source_ratio_percent(value: Any) -> Optional[Decimal]:
+    """Return a percentage as Decimal without rounding; None when unavailable.
+
+    Accepts a 0-1 fraction, an already-percent number, a '12.3456%' string,
+    or a dict. Zero is a real value; only missing/invalid input returns None.
+    """
+    if isinstance(value, dict):
+        value = value.get("value", value.get("ratio", value.get("percent")))
+    if value is None or isinstance(value, bool):
+        return None
+    text = str(value).strip()
+    if not text or text in {"-", "—"}:
+        return None
+    if "%" in text:
+        text = text.replace("%", "").strip()
+    try:
+        number = Decimal(text)
+    except InvalidOperation:
+        return None
+    if number != 0 and abs(number) <= 1:
+        number *= 100
+    return number
+
+
+def format_source_ratio(value: Any) -> str:
+    """Render an upstream ratio without rounding, zero-padding, or unit guessing.
+
+    A percent string such as '12.3400%' is returned verbatim. Numeric 0-1
+    fractions keep their original significant digits (0.123456 -> 12.3456%).
+    Zero renders as '0%'; missing or invalid values render as '-'.
+    """
+    if isinstance(value, dict):
+        value = value.get("value", value.get("ratio", value.get("percent")))
+    if value is None:
+        return "-"
+    text = str(value).strip()
+    if not text or text in {"-", "—"}:
+        return "-"
+    if "%" in text:
+        return text
+    number = source_ratio_percent(value)
+    if number is None:
+        return text
+    return f"{format(number.normalize(), 'f')}%"
+
+
 def _assets_kv(assets: Any) -> Dict[str, Any]:
     a = assets if isinstance(assets, dict) else {}
     kv: Dict[str, Any] = {}
@@ -334,11 +381,7 @@ def _assets_kv(assets: Any) -> Dict[str, Any]:
         for item in a["cloudServiceProviderRatio"]:
             if isinstance(item, dict) and item.get("cloudService"):
                 ratio = item.get("ratio")
-                try:
-                    pct = f"{float(ratio) * 100:.0f}%" if ratio is not None else "-"
-                except (TypeError, ValueError):
-                    pct = _text(ratio)
-                spend_parts.append(f"{_text(item.get('cloudService'))} {pct}")
+                spend_parts.append(f"{_text(item.get('cloudService'))} {format_source_ratio(ratio)}")
         if spend_parts:
             kv["云支出占比"] = "、".join(spend_parts)
     # CDN 节点规模（cdnServerNum 是真实字段；上游无 hasCdn/cdnServerList，已移除避免渲染 “-”）
@@ -364,15 +407,10 @@ def _spend_rows(assets: Any) -> List[Dict[str, Any]]:
         if not vendor:
             continue
         ratio = item.get("ratio")
-        if ratio is None:
-            pct = 0.0
-        else:
-            try:
-                pct = float(ratio) * 100
-            except (TypeError, ValueError):
-                pct = 0.0
-        out.append({"云厂商": vendor, "支出占比": round(pct, 1)})
-    out.sort(key=lambda r: r["支出占比"], reverse=True)
+        pct = source_ratio_percent(ratio)
+        out.append({"云厂商": vendor, "支出占比": format_source_ratio(ratio),
+                    "支出占比数值": float(pct) if pct is not None else 0.0})
+    out.sort(key=lambda r: r["支出占比数值"], reverse=True)
     return out
 
 
@@ -454,7 +492,7 @@ def build_core_analysis(assets: Any, domain: Any) -> Dict[str, Any]:
     sections = [
         {"key": "cloud_assets_overview", "title": "云资产概况", "kind": "kv"},
         {"key": "spend_dist", "title": "云支出占比", "kind": "pie", "note": "按云服务厂商的真实支出占比（cloudServiceProviderRatio）",
-         "chart": {"name": "云厂商", "value": "支出占比", "donut": True},
+         "chart": {"name": "云厂商", "value": "支出占比数值", "donut": True},
          "columns": [("云厂商", "云厂商"), ("支出占比", "支出占比")]},
         {"key": "vendor_dist", "title": "云服务厂商记录", "kind": "bar", "note": "上游返回的云服务厂商去重记录",
          "chart": {"name": "云厂商", "value": "覆盖服务数", "orient": "v"},
@@ -519,7 +557,7 @@ def build_insights(subject: Mapping[str, Any], core: Mapping[str, Any], metrics:
         })
     spend_rows = core.get("spend_dist") or []
     if spend_rows:
-        evidence = "、".join(f"{r.get('云厂商')} {r.get('支出占比')}%" for r in spend_rows)
+        evidence = "、".join(f"{r.get('云厂商')} {r.get('支出占比')}" for r in spend_rows)
         insights.append({
             "feature": "云支出占比记录",
             "evidence": f"上游返回：{evidence}。",
