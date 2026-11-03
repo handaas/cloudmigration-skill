@@ -17,7 +17,7 @@
         "business-review.json": "fddf2f96a47733a2c9f0f7a21dff1bad807fe6ba72a3970d4b5c57a1f7ed1e52",
         "browser-check.json": "156cb9add479da9564b22d7a17b59d6617bc805f5ee7d86559073ed00618181c"
       },
-      "audit_record": "../../test-records/live-replaced-20261027/01-cloud-native-tech.md"
+      "audit_record": "../test-records/live-replaced-20261027/01-cloud-native-tech.md"
     },
     {
       "skill": "cloudmigration-skill",
@@ -35,7 +35,7 @@
         "business-review.json": "cc00a06f378169a8155ad3ca23760bea927fe42737f41a069cf93d30a478d206",
         "browser-check.json": "db503016967d3f3edb8943753a78dabe726a61df11c07d38b987e5171081f47e"
       },
-      "audit_record": "../../test-records/live-replaced-20261027/02-ecommerce-cloud.md"
+      "audit_record": "../test-records/live-replaced-20261027/02-ecommerce-cloud.md"
     },
     {
       "skill": "cloudmigration-skill",
@@ -53,7 +53,7 @@
         "business-review.json": "255f2b9397a74185d9b1a4ab9ff515135654b4180bcb1e26804d6eea288d52c6",
         "browser-check.json": "8957a6501b0455fdd21de48e36e4da485c90ddcebe59806f9a557fc0df530f88"
       },
-      "audit_record": "../../test-records/live-replaced-20261027/03-manufacturer-digital.md"
+      "audit_record": "../test-records/live-replaced-20261027/03-manufacturer-digital.md"
     },
     {
       "skill": "cloudmigration-skill",
@@ -71,7 +71,7 @@
         "business-review.json": "dbe262dadbc6ffa883a46ffebdcfa550ee4d976c206bffa8009ad9182297be9f",
         "browser-check.json": "75bb3114f9adde32941863559ad96c47527cb42d15069d246436742cbb3d2a2c"
       },
-      "audit_record": "../../test-records/live-replaced-20261027/04-bank-cloud-boundary.md"
+      "audit_record": "../test-records/live-replaced-20261027/04-bank-cloud-boundary.md"
     },
     {
       "skill": "cloudmigration-skill",
@@ -89,7 +89,7 @@
         "business-review.json": "87b6907bb29a674ef30c9e0c123b70082a5160d8904a4dac76f5c22b4c00913d",
         "browser-check.json": "51b8d869bb67e25009dc6fa63a14204446a40eef03818bab32c6f8ada89d0d61"
       },
-      "audit_record": "../../test-records/live-replaced-20261027/05-automaker-cloud.md"
+      "audit_record": "../test-records/live-replaced-20261027/05-automaker-cloud.md"
     },
     {
       "skill": "cloudmigration-skill",
@@ -107,7 +107,7 @@
         "business-review.json": "983b5b12da5b354c6051c9f49872eb8aebbc9bf90cf249e0d110834092363a72",
         "browser-check.json": "40c6533f0270e4de1b25364e4490e2e6e1bdcaec3f2aee7a21c1a60f74379091"
       },
-      "audit_record": "../../test-records/live-replaced-20261027/06-consumer-electronics-cloud.md"
+      "audit_record": "../test-records/live-replaced-20261027/06-consumer-electronics-cloud.md"
     }
   ]
 }
