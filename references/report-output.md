@@ -73,3 +73,18 @@ python scripts/render_report.py --input output/cloudmigration.json --output outp
 ```
 
 返回：JSON 路径、HTML 路径、Markdown 路径，以及企业全称映射与数据口径摘要。
+
+## 内容审校（离线）
+
+对已有 `report.json` 复核而不调用 MCP：`python scripts/cloud_content_review.py --input <report.json> --out-dir <dir>`；纯函数 `cloud_content_review.apply_content_review(report)` 返回深拷贝，可单独测试。审校顺序：
+
+1. 云厂商标签：同义写法合并、`海外/其他` 单列为上游未具名归类，不计厂商数；原始写法保留在 `原始标签`。
+2. 比例：支出占比记录逐行保留，不因别名合并或求和；显式百分比字符串原样输出，不四舍五入、不补齐到 100%。
+   报告 `spend_dist` 的 `支出占比` / `支出占比数值` 已是百分数单位，旧报告中的数值 `0.5` 代表 `0.5%`；不可按数值大小猜测单位。只有原始接口的 0–1 比例按分数转换；显式 `0.5%` / `1.00%` 不再乘 100。
+   云支出占比使用逐条可见表格，不用饼图的 `{d}%` 将源值再次归一化；正常生成、离线复核及独立重渲染都保留同一源端展示串，不假定记录互斥或合计为 100%。
+3. 证据：备案年度趋势必须带“当前返回 N 条（上游总量 M）”；指标卡不删除 `0`。
+4. 措辞：删除 `keywordType`、`cloudServiceProviderRatio` 等内部字段名；不以资产等级推断技术/安全/跨境结论。
+
+交付前按最终 `sections` 与实际 body 刷新 `data_source.quality_report`（`0` 计为已填充；`coverage_pct` 仅为章节填充率，不是准确率）；保留原 `generated_at`。
+
+CLI 会拒绝 `--out-dir` 的 `report.json` 解析为 `--input` 的调用；输出目标应位于本 skill 的 `output/content-quality-review/`，不得覆盖 `examples/` 或 `test-records/`。

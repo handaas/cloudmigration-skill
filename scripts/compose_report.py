@@ -19,12 +19,14 @@ import argparse
 import datetime as dt
 import json
 import pathlib
-from decimal import Decimal, InvalidOperation
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
 from common import REPORT_BANNER, REPORT_TYPE, attach_pagination, call_tool_once, collect_detail_pages, die, json_dumps, load_json_file, paid_call_scope, print_json
 import mcp_client
 from render_report import render_html, render_markdown, html_to_pdf
+
+from cloud_content_review import apply_content_review
+from cloud_ratio import format_source_ratio, source_ratio_percent
 
 SAMPLE_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets" / "report.example.json"
 
@@ -283,7 +285,7 @@ def build_caliber(subject: Mapping[str, Any]) -> Dict[str, Any]:
             page_note += f"（每页最多 {size} 条）"
     return {
         "match_target": subject.get("enterprise") or subject.get("match_raw"),
-        "match_type": f"云资产/备案域名按企业主体匹配（keywordType={subject.get('keywordType', 'name')}）",
+        "match_type": "云资产/备案域名按企业名称匹配；支持企业名称、统一社会信用代码、注册号和企业 ID",
         "data_scope": "企业云资产概况（域名/云厂商/云支出占比/云用量）、备案域名明细与年度趋势",
         "products": ["企业云资产", "备案域名信息"],
         "limit": "；".join(p for p in (
@@ -312,52 +314,6 @@ def build_metrics(assets: Any, domain: Any) -> List[Dict[str, Any]]:
     metrics.append({"label": "上云资产等级", "value": (_text(cloud_consumption) or "-"), "hint": "云资产规模等级"})
     metrics.append({"label": "备案域名数", "value": (_text(domain_total) if domain_total is not None else "-"), "hint": "备案域名条数"})
     return [m for m in metrics if m.get("value") not in ("", None, "-")]
-
-
-def source_ratio_percent(value: Any) -> Optional[Decimal]:
-    """Return a percentage as Decimal without rounding; None when unavailable.
-
-    Accepts a 0-1 fraction, an already-percent number, a '12.3456%' string,
-    or a dict. Zero is a real value; only missing/invalid input returns None.
-    """
-    if isinstance(value, dict):
-        value = value.get("value", value.get("ratio", value.get("percent")))
-    if value is None or isinstance(value, bool):
-        return None
-    text = str(value).strip()
-    if not text or text in {"-", "—"}:
-        return None
-    if "%" in text:
-        text = text.replace("%", "").strip()
-    try:
-        number = Decimal(text)
-    except InvalidOperation:
-        return None
-    if number != 0 and abs(number) <= 1:
-        number *= 100
-    return number
-
-
-def format_source_ratio(value: Any) -> str:
-    """Render an upstream ratio without rounding, zero-padding, or unit guessing.
-
-    A percent string such as '12.3400%' is returned verbatim. Numeric 0-1
-    fractions keep their original significant digits (0.123456 -> 12.3456%).
-    Zero renders as '0%'; missing or invalid values render as '-'.
-    """
-    if isinstance(value, dict):
-        value = value.get("value", value.get("ratio", value.get("percent")))
-    if value is None:
-        return "-"
-    text = str(value).strip()
-    if not text or text in {"-", "—"}:
-        return "-"
-    if "%" in text:
-        return text
-    number = source_ratio_percent(value)
-    if number is None:
-        return text
-    return f"{format(number.normalize(), 'f')}%"
 
 
 def _assets_kv(assets: Any) -> Dict[str, Any]:
@@ -491,8 +447,8 @@ def build_core_analysis(assets: Any, domain: Any) -> Dict[str, Any]:
 
     sections = [
         {"key": "cloud_assets_overview", "title": "云资产概况", "kind": "kv"},
-        {"key": "spend_dist", "title": "云支出占比", "kind": "pie", "note": "按云服务厂商的真实支出占比（cloudServiceProviderRatio）",
-         "chart": {"name": "云厂商", "value": "支出占比数值", "donut": True},
+        {"key": "spend_dist", "title": "云支出占比", "kind": "table",
+         "note": "逐条保留上游百分数；各行未证明互斥，不求和、不重分配或归一化至 100%",
          "columns": [("云厂商", "云厂商"), ("支出占比", "支出占比")]},
         {"key": "vendor_dist", "title": "云服务厂商记录", "kind": "bar", "note": "上游返回的云服务厂商去重记录",
          "chart": {"name": "云厂商", "value": "覆盖服务数", "orient": "v"},
@@ -645,7 +601,7 @@ def _assemble(subject: Mapping[str, Any], core: Mapping[str, Any], metrics: Sequ
         import sys
         print("⚠️ 质量门禁警告: 所有核心分析维度均无数据", file=sys.stderr)
     title = f"{subject.get('enterprise') or '目标企业'} 上云大数据报告"
-    return {
+    report = {
         "report_type": REPORT_TYPE,
         "title": title,
         "banner": REPORT_BANNER,
@@ -669,6 +625,7 @@ def _assemble(subject: Mapping[str, Any], core: Mapping[str, Any], metrics: Sequ
             "quality_report": quality_report,
         },
     }
+    return apply_content_review(report)
 
 
 @paid_call_scope

@@ -70,6 +70,8 @@ description: Use for generating a professional cloud-migration (上云) big-data
 4. **渲染三件套**：`compose_report.py --enterprise ... --output ... --report-output ...` 直接产出 JSON + HTML + Markdown；或 `render_report.py --input ... --output ...` 重渲染。
 5. **返回路径**：返回 JSON、HTML、Markdown 文件路径，以及企业全称映射与数据口径。
 
+- **渲染前置检查**：执行会产出含图表 HTML / PDF 的报告命令前，先验证 `node --version` 与本 skill 自带 `assets/vendor/echarts.min.js` 存在；内嵌静态 SVG 的生成需要 Node.js（推荐当前 LTS，无需 npm 包），缺失时报告生成明确报错。查看已生成的 HTML 与 Markdown 输出不需要 Node。
+
 ## 脚本速查
 
 ```bash
@@ -114,5 +116,17 @@ python scripts/render_report.py --input output/cloudmigration.json --output outp
 - `representative_records`：代表性备案域名（域名 / 网址 / 是否官网）。
 - `insights`：结构化解读（云上资产规模 / 上云深度 / 云架构特征 / 备案合规度）。
 - `data_source`：MCP server、数据产品、生成时间、是否 dry-run。
+
+## 内容整理与交付审校
+
+生成后按“原始值 → 规范标签 → 证据位置”逐项整理，保留原始值供核对。`subject.keywordType`、`subject.matchKeyword` 等机器字段保留在 JSON 供系统集成，只从 caliber / 正文可见文本中移除内部代码：
+
+1. **云厂商标签归一**：`AWS`/`Amazon`、`akamai`/`Akamai`、`google`/`Google Cloud` 等同一厂商的不同写法合并，并在括号中保留原始写法；`海外`、`其他` 是上游未具名归类，单列且不计入厂商数，绝不当作具体云厂商。
+2. **比例不重算**：支出占比逐行保留，不因同名或别名合并、求和或去重；显式百分比字符串（如 `12.3400%`）原样输出，数值不补零、不舍入、不补齐到 100%，原始厂商写法保存在 JSON 的 `原始标签`。
+3. **样本边界**：备案域名指标是上游总量，年度趋势/明细是当前页样本；趋势结论必须写明“当前返回 N 条（上游总量 M）”，不得用样本年度覆盖冒充全量。
+4. **不越级推断**：域名数、子域名数、厂商数、资产等级不能推出技术架构、安全风险、跨境业务或监管状态；海外服务器字段只按“是/否”呈现。
+5. **交付前自检**：正文不得出现 `keywordType`、`cloudServiceProviderRatio`、`hasOverseasCloudService` 等内部字段名；空维度不渲染；同一句解读不在执行摘要重复。
+
+离线复核已有 JSON（不调用 MCP）：`python scripts/cloud_content_review.py --input <report.json> --out-dir <dir>`；纯函数为 `cloud_content_review.apply_content_review(report)`。
 
 若 API 调用失败，明确报出缺失的配置 / 缺失的工具 / MCP 错误 / 参数校验错误 / 上游网络错误，给出 dry-run 命令或配置步骤，绝不暴露密钥。
