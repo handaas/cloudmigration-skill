@@ -51,6 +51,54 @@
 
 5. **派生边界**：仅可从同一返回集合计算可复核的展示统计，不为凑足指标数量派生比例，不跨产品总体计算覆盖率。
 
+## AI 审校交付门禁（草稿 → final）
+
+`compose_report.py` / `compose_fusion_report.py` 的正常生成与 `--dry-run` 都只产出数据草稿：JSON 标记 `data_source.semantic_review.status=pending`，同时生成的 HTML/Markdown 带“数据草稿（待AI语义审校）”提示，不能作为最终交付。`apply_content_review`、`organize_report` 等确定性整理只做规则清洗，不是语义审校，不能替代当前 AI 的实际阅读。
+
+```bash
+python scripts/review_report.py --input output/draft.json --request output/review-request.json
+# 当前 AI 阅读 output/review-request.json 的 report 后写 output/ai-review.json
+python scripts/review_report.py --input output/draft.json --review output/ai-review.json \
+  --output output/final/report.json --report-output output/final/report.html
+```
+
+`--request` 只读草稿并生成审校请求，不调用 MCP、外部模型 API 或新增查询；`--review` 应用当前 AI 的逐项判断，写出最终 JSON，并由同一 JSON 渲染 HTML/Markdown（需要 PDF 时加 `--pdf-output`）。两个命令都只允许写入本 Skill 的 `output/` 目录，且不能覆盖原草稿或审校文件。
+
+### 审校响应 JSON
+
+请求包含 `source_sha256`、`report`、`visible_section_keys`、`instructions`、`response_fields`。响应必须是 JSON 对象：
+
+```json
+{
+  "source_sha256": "<与请求完全一致>",
+  "summary": [
+    {"text": "逐句摘要中的一句", "sources": ["/core_analysis/..."], "kind": "fact"}
+  ],
+  "normalizations": [
+    {"sources": ["/core_analysis/..."], "category": "语义类别", "normalized": "规范表达", "evidence": "原文摘录", "reason": "归类理由"}
+  ],
+  "insights": [
+    {"feature": "特征", "evidence": "证据摘录", "interpretation": "有依据的解读", "sources": ["/metrics/0"]}
+  ]
+}
+```
+
+- `source_sha256` 必须与请求一致；对不上表示草稿已变化，须重新生成请求，不能沿用旧判断。
+- `sources` 使用本报告 JSON Pointer，只能指向实际存在的 `/subject/…`、`/core_analysis/…`、`/metrics/…`、`/caliber/…`、`/data_source/…`、`/analysis_request/…`。`/core_analysis/sections` 与 `/data_source/semantic_review` 只是章节定义/状态，不能作为事实依据；旧 `abstract`/`summary`/`insights` 也不能当事实依据。
+- 每项至少一个来源，且不能重复同一路径；同一来源可支持多条判断。不能引用其他企业、其他案例、其他记录或常识来补本记录。
+- `summary` 写 3–5 句有信息量的逐句摘要，其 `kind` 只能是 `fact`（有数据的事实）、`interpretation`（可回溯的解释）或 `limitation`（覆盖、口径、未查询限制）。没有数据依据时只能写 `limitation`，不能生成事实或业务解释。
+- `normalizations` 是独立视图，不改写原始字段：`normalized` 做语义归类和别名合并，`category` 写类别，`reason` 写逐项理由。`evidence` 必填，由当前 AI 选择简洁可读的原文摘录作为“原文依据”列，并由同项 `sources` 支撑，完整原值仍保留在 draft/request 与来源 SHA 记录中。必须保留来源中的否定、最高、至少、至多、试用期、转正后、仅限、部分、疑似、待定、已失效等限定；不同主体、互斥金额或比例不能合并；没有实际归类需要时可为空。
+- `insights` 的 `feature`、`evidence` 和 `interpretation` 都必须由同一 `sources` 支撑；`evidence` 是实际 AI 写的简洁可读证据摘录，保留来源数字、单位与限定；不推断上下游关系、低风险、经营能力或行业地位。
+- 文本中的每个数字（含千分位、百分号与原始小数位）必须逐字出现在所引 values 中；`normalized`、`category`、`reason`、`evidence` 和洞察文本同样适用。不得发明派生数字或改变精度；需要派生指标时先在脚本中计算并写入报告，再引用。
+- 只使用本次数据；不调用 MCP、外部模型 API，也不新增查询。审校文件是 `output/ai-review.json`，不是最终报告。
+- 应用后 `data_source.semantic_review.status=reviewed`，并记录 `source_sha256`、原 `generated_at`、审校时间与判断证据；原查询时间和原件不变。`summary` 写入 `abstract`/`summary`/`executive_summary`，`normalizations` 写入 `core_analysis.ai_normalization`（独立表格），`insights` 写入 `insights`；原始字段不改写。
+
+### 展示与交付核对
+
+- 空板块连标题和目录一起隐藏，但隐藏只为展示：不能从 `quality_report` 的分母抹去未覆盖维度，也不能因此提高覆盖率。真实 `0`/`False` 原样保留；缺失 `-` 与未查询不等于 0；失败或未查询只在口径限制中简述，不补数据、不推断“无风险”。
+- AI 标准化与摘要是解释视图，不新增数据来源，也不改变原始字段或源数据覆盖率。
+- 最终 JSON 是草稿加实际审校后的新副本；最终 HTML/Markdown 必须从该 JSON 渲染，并核对章节、目录、图表和空板块。只有请求文件、草稿或手工润色件不算完成。
+
 ## 工作流
 
 ```bash
@@ -88,3 +136,5 @@ python scripts/render_report.py --input output/cloudmigration.json --output outp
 交付前按最终 `sections` 与实际 body 刷新 `data_source.quality_report`（`0` 计为已填充；`coverage_pct` 仅为章节填充率，不是准确率）；保留原 `generated_at`。
 
 CLI 会拒绝 `--out-dir` 的 `report.json` 解析为 `--input` 的调用；输出目标应位于本 skill 的 `output/content-quality-review/`，不得覆盖 `examples/` 或 `test-records/`。
+
+审校复核：完整保留有来源的摘要句子及采集层“数据缺口／主体解析受阻”提示；重审不得引用 `/core_analysis/ai_normalization` 等既有 AI 视图作为原始证据。HTML 与 Markdown 应使用一致的样本数量、趋势顺序及数据列，单元格中的竖线和换行不得破坏表格结构。
